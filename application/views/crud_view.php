@@ -24,6 +24,7 @@
           <th class="text-center">ID</th>
           <th class="text-center">Nome</th>
           <th class="text-center">Hora</th>
+          <th class="text-center">Status</th>
           <th class="text-center">Actions</th>
         </tr>
       </thead>
@@ -38,6 +39,9 @@
             </td>
             <td class="text-center">
               <?php echo $task->time ?>h
+            </td>
+            <td class="text-center">
+              <?php echo $task->status == 1 ? 'Completo' : 'Incompleto' ?>
             </td>
             <td class="text-center">
               <a href="<?php echo base_url(); ?>crud/editTask/<?php echo $task->id ?>" class="btn btn-success">Edit</a>
@@ -67,6 +71,15 @@
             <div class="form-group">
               <label for="time">Tempo</label>
               <input type="text" name="time" placeholder="Enter the time" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select name="status" id="status">
+                <option value="">Selecione o status da tarefa</option>
+                <option value="1">Completo</option>
+                <option value="2">Incompleto</option>
+              </select>
             </div>
 
           </div>

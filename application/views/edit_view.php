@@ -25,11 +25,19 @@
         <label for="time">Time</label>
         <input type="text" name="time" placeholder="enter the task time" class="form-control" value="<?php echo $singleTask->time; ?>">
       </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" id="status">
+          <option value="">---</option>
+          <option value="1" <?php echo $singleTask->status == 1 ? 'selected' : ''; ?>>Completo</option>
+          <option value="2" <?php echo $singleTask->status == 2 ? 'selected' : ''; ?>>Incompleto</option>
+        </select>
+      </div>
       <input type="submit" name="edit" value="Update" class="btn btn-primary">
     </form>
   </div>
 
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 

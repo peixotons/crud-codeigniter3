@@ -10,6 +10,7 @@ class Crud extends CI_Controller
   {
     $this->form_validation->set_rules('name', 'Task Name', 'trim|required');
     $this->form_validation->set_rules('time', 'Task Time', 'trim|required');
+    $this->form_validation->set_rules('status', 'Task Status', 'trim|required');
     if ($this->form_validation->run() == false) {
       $data_error = [
         'error' => validation_errors()
@@ -18,7 +19,8 @@ class Crud extends CI_Controller
     } else {
       $result = $this->crud_model->insertTask([
         'name' => $this->input->post('name'),
-        'time' => $this->input->post('time')
+        'time' => $this->input->post('time'),
+        'status' => $this->input->post('status')
       ]);
       if ($result) {
         $this->session->set_flashdata('inserted', 'Your task has been successfully created !');
@@ -36,6 +38,7 @@ class Crud extends CI_Controller
   {
     $this->form_validation->set_rules('name', 'Task Name', 'trim|required');
     $this->form_validation->set_rules('time', 'Task Time', 'trim|required');
+    $this->form_validation->set_rules('status', 'Task Status', 'trim|required');
     if ($this->form_validation->run() == false) {
       $data_error = [
         'error' => validation_errors()
@@ -44,7 +47,8 @@ class Crud extends CI_Controller
     } else {
       $result = $this->crud_model->updateTask([
         'name' => $this->input->post('name'),
-        'time' => $this->input->post('time')
+        'time' => $this->input->post('time'),
+        'status' => $this->input->post('status')
       ], $id);
       if ($result) {
         $this->session->set_flashdata('updated', 'Your task has been successfully updated !');
